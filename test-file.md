@@ -1,7 +1,9 @@
 # Title
-
-[Google](https://www.google.com/)
-[YouTube](https://www.youtube.com/)
+Hi, my name is Trinity.
 [Link][1]
 
 [1]: http://b.org
+
+![Image](http://url/a.png)
+[Google](https://www.google.com/)
+[YouTube](https://www.youtube.com/)
