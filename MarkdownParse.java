@@ -30,6 +30,11 @@ public class MarkdownParse {
             currentIndex = closeParen + 1;
         }
 
+        if (toReturn.size() == 0) {
+            System.out.println("The file has no links. Return empty Array: ");
+            return toReturn;
+        }
+
         return toReturn;
     }
 
