@@ -23,7 +23,7 @@ public class MarkdownParse {
                 int closeParen = markdown.indexOf(")", openParen);
                 currentIndex = closeParen + 1;
             }
-            if (markdown.charAt(openBracket + 1) == ']') {
+            else if (markdown.charAt(openBracket + 1) == ']') {
                 int closeBracket = markdown.indexOf("]", openBracket);
                 int openParen = markdown.indexOf("(", closeBracket);
                 int closeParen = markdown.indexOf(")", openParen);
@@ -33,9 +33,10 @@ public class MarkdownParse {
                 int closeBracket = markdown.indexOf("]", openBracket);
                 int openParen = markdown.indexOf("(", closeBracket);
                 int closeParen = markdown.indexOf(")", openParen);
-                toReturn.add(markdown.substring(openParen + 1, closeParen));
+                if (markdown.charAt(openParen - 1) == ']') {
+                    toReturn.add(markdown.substring(openParen + 1, closeParen));
+                }
                 currentIndex = closeParen + 1;
-
             }
         }
 
@@ -43,7 +44,7 @@ public class MarkdownParse {
             System.out.println("The file has no links. Return empty Array: ");
             return toReturn;
         }
-
+        
         return toReturn;
     }
 
@@ -54,5 +55,4 @@ public class MarkdownParse {
         ArrayList<String> links = getLinks(content);
         System.out.println(links);
     }
-
 }
