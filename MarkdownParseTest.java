@@ -122,7 +122,17 @@ public class MarkdownParseTest {
         String content = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(content);
 
-        assertEquals(List.of(), links);
+        assertEquals(List.of("a link on the first line"), links);
+
+    }
+
+    @Test
+    public void parseTester() throws IOException {
+        Path fileName = Path.of("Tester.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+
+        assertEquals(List.of("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "https://www.google.com/"), links);
 
     }
 }
