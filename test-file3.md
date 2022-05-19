@@ -7,3 +7,4 @@
 [Link][1]
 
 [1]: http://b.org
+![Image](http://url/a.png)

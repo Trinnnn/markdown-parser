@@ -20,9 +20,11 @@ public class MarkdownParse {
             int openBracket = markdown.indexOf("[", currentIndex);
 
             if ((openBracket >= 1 && markdown.charAt(openBracket - 1) == '!')) {
+
                 int closeBracket = markdown.indexOf("]", openBracket);
                 int openParen = markdown.indexOf("(", closeBracket);
                 int closeParen = markdown.indexOf(")", openParen);
+
                 currentIndex = closeParen + 1;
             }
             else {
@@ -49,7 +51,6 @@ public class MarkdownParse {
         return toReturn;
         
     }
-
 
     public static void main(String[] args) throws IOException {
         Path fileName = Path.of(args[0]);
