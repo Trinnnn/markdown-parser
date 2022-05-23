@@ -135,5 +135,32 @@ public class MarkdownParseTest {
         assertEquals(List.of("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "https://www.google.com/"), links);
 
     }
+
+    @Test
+    public void Snippet_1() throws IOException {
+        Path fileName = Path.of("Snippet_1.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+
+        assertEquals(List.of("`google.com"), links);
+    }
+
+    @Test
+    public void Snippet_2() throws IOException {
+        Path fileName = Path.of("Snippet_2.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+
+        assertEquals(List.of("a.com", "a.com(())", "example.com"), links);
+    }
+
+    @Test
+    public void Snippet_3() throws IOException {
+        Path fileName = Path.of("Snippet_3.md");
+        String content = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(content);
+
+        assertEquals(List.of("https://sites.google.com/eng.ucsd.edu/cse-15l-spring-2022/schedule"), links);
+    }
 }
 
