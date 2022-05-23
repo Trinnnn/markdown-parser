@@ -142,7 +142,7 @@ public class MarkdownParseTest {
         String content = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(content);
 
-        assertEquals(List.of("`google.com"), links);
+        assertEquals(List.of("`google.com", "google.com", "ucsd.edu"), links);
     }
 
     @Test

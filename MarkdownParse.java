@@ -19,7 +19,7 @@ public class MarkdownParse {
 
             int openBracket = markdown.indexOf("[", currentIndex);
 
-            if ((openBracket >= 1 && markdown.charAt(openBracket - 1) == '!')) {
+            if (openBracket >= 1 && (markdown.charAt(openBracket - 1) == '!' || markdown.charAt(openBracket - 1) == '`')) {
 
                 int closeBracket = markdown.indexOf("]", openBracket);
                 int openParen = markdown.indexOf("(", closeBracket);
@@ -33,7 +33,7 @@ public class MarkdownParse {
                 int closeParen = markdown.indexOf(")", openParen);
 
                 if (markdown.indexOf("\n", openBracket) == -1 || 
-                markdown.indexOf("\n", openBracket) >= closeParen) {
+                markdown.indexOf("\n", openBracket) >= closeParen ) {
                     toReturn.add(markdown.substring(openParen + 1, closeParen));
                     currentIndex = closeParen + 1;
                 }
